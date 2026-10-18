@@ -1,16 +1,19 @@
 ## Hi there 👋
-<meta name="google-site-verification" content="sRrTusd1shIEL35zhGlyhe5H7EhsBImZPPwgcu2ES5Y" />
-<!--
-**kiarashsardari/kiarashsardari** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+# Kiarash Sardari
 
-Here are some ideas to get you started:
+### Data Analyst | Python Developer
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+I analyze data with Python (Pandas, NumPy, Matplotlib) and I'm on my way to Machine Learning and Deep Learning.
+
+## Skills
+- Python
+- Pandas, NumPy, Matplotlib
+- Data Analysis
+- Currently learning: Machine Learning, Deep Learning
+
+## Projects
+- [LYM](https://github.com/kiarashsardari/LYM) – Trading strategy analyzer
+- [Math-Tool](https://github.com/kiarashsardari/Math-Tool) – Math toolkit
+- [Sales-Data-Analyzer](https://github.com/kiarashsardari/Sales-Data-Analyzer) – Sales data analyzer
+- [File-converter](https://github.com/kiarashsardari/File-converter) – CSV ⇄ XLSX converter
+- [Temperature-Analyzer](https://github.com/kiarashsardari/Temperature-Analyzer) – Tehran temperature analyzer
