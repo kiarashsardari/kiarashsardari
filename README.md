@@ -1,4 +1,3 @@
-## Hi there 👋
 # Kiarash Sardari
 
 ### Data Analyst | Python Developer
