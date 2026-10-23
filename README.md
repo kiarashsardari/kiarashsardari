@@ -16,4 +16,3 @@ I analyze data with Python (Pandas, NumPy, Matplotlib) and I'm on my way to Mach
 - [Sales-Data-Analyzer](https://github.com/kiarashsardari/Sales-Data-Analyzer) – Sales data analyzer
 - [File-converter](https://github.com/kiarashsardari/File-converter) – CSV ⇄ XLSX converter
 - [Temperature-Analyzer](https://github.com/kiarashsardari/Temperature-Analyzer) – Tehran temperature analyzer
-- [The-Dairy](https://github.com/kiarashsardari/The-Dairy) – The Smart Dairy
