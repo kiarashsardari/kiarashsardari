@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kiarash Sardari — Data Analyst</title>
+<meta name="description" content="تحلیل‌گر داده با تخصص در پایتون، آمار کاربردی، جبر خطی، مصورسازی داده و توسعه ابزارهای تحلیلی." />
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0b1020;
+    --card:#161e3d;
+    --line:#26305c;
+    --text:#e8ecff;
+    --muted:#9aa6d1;
+    --accent:#6c8bff;
+    --accent-2:#8b6cff;
+    --accent-3:#22d3ee;
+    --good:#34d399;
+    --star:#fbbf24;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Vazirmatn',system-ui,sans-serif;
+    background:
+      radial-gradient(1200px 600px at 90% -10%, rgba(139,108,255,.15), transparent 60%),
+      radial-gradient(900px 500px at -10% 10%, rgba(34,211,238,.10), transparent 60%),
+      var(--bg);
+    color:var(--text);
+    line-height:1.8;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1100px;margin:0 auto;padding-left:22px;padding-right:22px}
+
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px);
+    background:rgba(11,16,32,.7);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 22px;max-width:1100px;margin:0 auto;
+  }
+  .brand{font-weight:700;font-size:1rem;letter-spacing:.3px}
+  .nav-links{display:flex;gap:22px}
+  .nav-links a{color:var(--muted);font-size:.92rem;transition:.2s}
+  .nav-links a:hover{color:var(--text)}
+  @media (max-width:720px){ .nav-links{display:none} }
+
+  .hero{padding-top:60px;padding-bottom:40px}
+  .hero-name{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;letter-spacing:-.5px;line-height:1.1;}
+  .hero-name .grad{background:linear-gradient(120deg,var(--accent),var(--accent-2) 50%,var(--accent-3));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero-title{color:var(--muted);font-size:1.05rem;margin-top:6px;font-weight:500;}
+
+  .contact-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+  .contact-btn{display:inline-flex;align-items:center;gap:9px;padding:10px 16px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--text);font-weight:600;font-size:.9rem;transition:.2s;}
+  .contact-btn:hover{border-color:var(--accent);background:rgba(108,139,255,.08);transform:translateY(-2px);}
+  .contact-btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));border-color:transparent;color:#fff;}
+  .contact-btn.primary:hover{box-shadow:0 10px 24px -10px rgba(108,139,255,.6);}
+  .contact-btn svg{width:16px;height:16px;flex:none}
+  .contact-btn .lbl{font-size:.72rem;color:var(--muted);font-weight:500;}
+  .contact-btn.primary .lbl{color:rgba(255,255,255,.75)}
+  .contact-btn .val{direction:ltr;font-family:'Vazirmatn',monospace;font-size:.88rem;overflow-wrap:anywhere;}
+
+  .hero-bio{color:var(--muted);font-size:1rem;max-width:680px;margin-top:22px;}
+
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:14px;margin-top:36px;}
+  .fact{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;}
+  .fact .k{font-size:.8rem;color:var(--muted);margin-bottom:6px}
+  .fact .v{font-size:1.15rem;font-weight:700}
+
+  section{padding-top:60px;padding-bottom:60px}
+  section[id]{scroll-margin-top:80px}
+  .section-head{margin-bottom:32px}
+  .section-head .kicker{color:var(--accent);font-weight:600;font-size:.8rem;letter-spacing:0;text-transform:uppercase;}
+  .section-head h2{font-size:clamp(1.3rem,2.4vw,1.7rem);font-weight:700;margin-top:6px;}
+  .section-head p{color:var(--muted);margin-top:8px;max-width:640px;font-size:.95rem}
+
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px;}
+  .skill-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;transition:.2s;}
+  .skill-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+  .skill-card h3{font-size:1rem;margin-bottom:8px}
+  .skill-card p{color:var(--muted);font-size:.9rem}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .skill-card .tags{margin-top:auto;padding-top:14px}
+  .tag{font-size:.75rem;padding:3px 9px;border-radius:6px;background:rgba(108,139,255,.1);border:1px solid rgba(108,139,255,.25);color:#c9d4ff;}
+
+  code{
+    font-family:ui-monospace,Menlo,Consolas,monospace;
+    font-size:.82em;direction:ltr;unicode-bidi:isolate;display:inline-block;
+    background:rgba(108,139,255,.12);border:1px solid rgba(108,139,255,.25);
+    border-radius:6px;padding:0 6px;line-height:1.7;color:#c9d4ff;
+  }
+
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:18px;}
+  a.project{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:.2s;color:var(--text);text-decoration:none;cursor:pointer;position:relative;}
+  a.project:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 10px 30px -12px rgba(108,139,255,.4);}
+  a.project:hover .p-gh{color:var(--accent);transform:scale(1.1)}
+  .project .p-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .project .p-name{font-size:1.05rem;font-weight:700}
+  .project .p-badge{font-size:.7rem;padding:3px 9px;border-radius:6px;background:rgba(52,211,153,.12);color:var(--good);border:1px solid rgba(52,211,153,.3);}
+  .project .p-badge.commercial{background:rgba(139,108,255,.12);color:#c4b5fd;border-color:rgba(139,108,255,.35);}
+  .project .p-badge.wip{background:rgba(251,191,36,.12);color:#fcd34d;border-color:rgba(251,191,36,.35);}
+  .project p{color:var(--muted);font-size:.9rem;flex:1}
+  .project .p-foot{display:flex;align-items:center;justify-content:space-between;margin-top:18px;padding-top:14px;border-top:1px solid var(--line);}
+  .project .p-langs{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .project .p-lang{display:flex;align-items:center;gap:5px;color:var(--muted);font-size:.8rem}
+  .project .p-gh{display:inline-flex;align-items:center;color:var(--muted);transition:.2s;}
+  .project .p-gh svg{width:18px;height:18px}
+
+  .project.featured{border-color:rgba(251,191,36,.35);background:linear-gradient(180deg, rgba(251,191,36,.06), var(--card));}
+  .project.featured:hover{border-color:var(--star);box-shadow:0 10px 30px -12px rgba(251,191,36,.35);}
+  .project .p-star{position:absolute;top:-9px;left:-9px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--star);color:#0b1020;font-size:.85rem;font-weight:800;box-shadow:0 4px 12px rgba(251,191,36,.5);}
+
+  .timeline{position:relative;padding-right:40px;max-width:820px;}
+  .timeline::before{content:"";position:absolute;top:14px;bottom:14px;right:11px;width:2px;background:linear-gradient(180deg, var(--accent), var(--accent-2), var(--accent-3), var(--star));opacity:.5;border-radius:2px;}
+  .tl-item{position:relative;margin-bottom:22px;padding:20px 22px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);transition:.2s;}
+  .tl-item:last-child{margin-bottom:0}
+  .tl-item:hover{border-color:var(--accent);transform:translateX(-3px)}
+  .tl-item::before{content:"";position:absolute;right:-34px;top:26px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);box-shadow:0 0 0 4px rgba(108,139,255,.18);}
+  .tl-item.done::before{background:var(--good);box-shadow:0 0 0 4px rgba(52,211,153,.18);}
+  .tl-item.current::before{background:var(--star);box-shadow:0 0 0 4px rgba(251,191,36,.2);}
+  .tl-item.current{border-color:rgba(251,191,36,.4);}
+
+  .tl-num{font-size:.72rem;color:var(--accent);font-weight:700;letter-spacing:0;margin-bottom:4px;}
+  .tl-item.done .tl-num{color:var(--good)}
+  .tl-item.current .tl-num{color:var(--star)}
+
+  .tl-title{font-size:1.05rem;font-weight:700;margin-bottom:6px;}
+  .tl-desc{color:var(--muted);font-size:.9rem;margin-bottom:12px;line-height:1.9;}
+  .tl-projects{display:flex;flex-wrap:wrap;gap:6px;}
+  .tl-proj{font-size:.75rem;padding:3px 9px;border-radius:6px;background:rgba(108,139,255,.1);border:1px solid rgba(108,139,255,.25);color:#c9d4ff;font-family:'Vazirmatn',monospace;}
+  .tl-item.current .tl-proj{background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.3);color:#fcd34d;}
+
+  footer{border-top:1px solid var(--line);padding:24px 0;margin-top:40px;color:var(--muted);font-size:.85rem;text-align:center;}
+  footer a{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">Kiarash Sardari</div>
+    <nav class="nav-links">
+      <a href="#skills">تخصص‌ها</a>
+      <a href="#projects">نمونه‌کارها</a>
+      <a href="#path">مسیر حرفه‌ای</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero container">
+  <h1 class="hero-name">Kiarash <span class="grad">Sardari</span></h1>
+  <div class="hero-title">تحلیلگر داده · متخصص پایتون و علوم داده</div>
+
+  <div class="contact-row">
+    <a class="contact-btn primary" href="mailto:kiarash123sardari@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      <span class="lbl">ایمیل</span>
+      <span class="val">kiarash123sardari@gmail.com</span>
+    </a>
+    <a class="contact-btn" href="tel:+989165197630">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span class="lbl">تلفن</span>
+      <span class="val">0916 519 7630</span>
+    </a>
+    <a class="contact-btn" href="https://github.com/kiarashsardari" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+      <span class="lbl">گیت‌هاب</span>
+      <span class="val">kiarashsardari</span>
+    </a>
+  </div>
+
+  <p class="hero-bio">
+    داده‌های خام را با پایتون به بینش قابل اقدام تبدیل می‌کنم؛ از پاک‌سازی و تحلیل تا مصورسازی و ساخت ابزارهای خط فرمان.
+    در حال حاضر مسیر یادگیری ماشین و یادگیری عمیق را با تمرکز بر کاربردهای واقعی دنبال می‌کنم.
+  </p>
+
+  <div class="facts">
+    <div class="fact"><div class="k">حوزه تخصص</div><div class="v">تحلیل داده</div></div>
+    <div class="fact"><div class="k">زبان برنامه‌نویسی</div><div class="v">پایتون</div></div>
+    <div class="fact"><div class="k">مسیر یادگیری</div><div class="v">ML / DL</div></div>
+    <div class="fact" style="grid-column:1/-1">
+      <div class="k">ابزارهای تخصصی</div>
+      <div class="tags">
+        <span class="tag">Pandas</span>
+        <span class="tag">NumPy</span>
+        <span class="tag">Matplotlib</span>
+        <span class="tag">SymPy</span>
+        <span class="tag">openpyxl</span>
+        <span class="tag">jdatetime</span>
+        <span class="tag">scikit-learn</span>
+        <span class="tag">Git</span>
+        <span class="tag">CLI</span>
+        <span class="tag">Statistics</span>
+        <span class="tag">Linear Algebra</span>
+        <span class="tag">AI-Assisted</span>
+        <span class="tag">Prompt Engineering</span>
+        <span class="tag">Problem Solving</span>
+        <span class="tag">Requirement Analysis</span>
+        <span class="tag">Debugging</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="container">
+  <div class="section-head">
+    <div class="kicker">تخصص‌ها</div>
+    <h2>ابزارها و توانمندی‌های تخصصی</h2>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h3>Python</h3>
+      <p>نوشتن اسکریپت‌های مختلف، ابزارهای خط فرمان و کد ماژولار و قابل نگهداری؛ کدنویسی خلاقانه.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">CLI</span><span class="tag">AI-Assisted</span></div>
+    </div>
+    <div class="skill-card">
+      <h3>تحلیل و آمار</h3>
+      <p>پیاده‌سازی از صفر مفاهیم آماری شامل آمار توصیفی، میانگین و واریانس، بازه چبیشف، نرمال‌سازی Z-Score و معیارهای MSE و RMSE به‌منظور درک عمیق سازوکار درونی آن‌ها.</p>
+      <div class="tags"><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Statistics</span></div>
+    </div>
+    <div class="skill-card">
+      <h3>جبر خطی و ریاضیات</h3>
+      <p>تشخیص نوع ماتریس، مشتق‌گیری نمادین و عملگر سیگما با SymPy؛ شالوده‌ای ریاضی برای مدل‌سازی و تحلیل داده.</p>
+      <div class="tags"><span class="tag">Linear Algebra</span><span class="tag">SymPy</span></div>
+    </div>
+    <div class="skill-card">
+      <h3>مصورسازی</h3>
+      <p>طراحی نمودارهای خطی، هیستوگرام و مقایسه توابع با Matplotlib به‌منظور انتقال مؤثر بینش داده‌ها به مخاطب.</p>
+      <div class="tags"><span class="tag">Matplotlib</span></div>
+    </div>
+    <div class="skill-card">
+      <h3>حل مسئله و تبدیل نیاز به کد</h3>
+      <p>شکستن یک مسئله واقعی به گام‌های قابل اجرا، تعریف دقیق ورودی و خروجی، و تبدیل نیاز به کد قابل تست. این مهارت شالوده‌ی همه‌ی پروژه‌های این پروفایل است؛ از LYM تا آخر.</p>
+      <div class="tags"><span class="tag">Problem Solving</span><span class="tag">Requirement Analysis</span><span class="tag">Debugging</span></div>
+    </div>
+    <div class="skill-card">
+      <h3>توسعه به کمک هوش مصنوعی</h3>
+      <p>ساخت وب‌سایت و ابزارهای کاربردی با هدایت مدل‌های هوش مصنوعی؛ از تعریف نیاز و نوشتن پرامپت دقیق تا بازبینی خروجی، تست و اصلاح. فروشگاه چرم نمونه‌ای از همین روش کاری است.</p>
+      <div class="tags"><span class="tag">AI-Assisted</span><span class="tag">Prompt Engineering</span><span class="tag">ساخت سایت با AI</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="container">
+  <div class="section-head">
+    <div class="kicker">نمونه‌کارها</div>
+    <h2>پروژه‌های شاخص</h2>
+  </div>
+
+  <div class="projects-grid">
+
+    <a class="project featured" href="https://github.com/kiarashsardari/LYM" target="_blank" rel="noopener">
+      <span class="p-star" title="پروژه ویژه">★</span>
+      <div class="p-head"><div class="p-name">LYM</div><span class="p-badge">تحلیل معاملات</span></div>
+      <p>ابزار خط فرمان برای تحلیل عملکرد استراتژی معاملاتی از فایل اکسل. محاسبه نرخ برد، توزیع پاداش، حد سود بهینه و رکورد برد/باخت متوالی. معماری ماژولار شامل <code>run.py</code>، <code>analyzer.py</code> و <code>dataset_maker.py</code>.</p>
+      <div class="p-foot">
+        <span class="p-langs"><span class="p-lang">Python</span></span>
+        <span class="p-gh"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></span>
+      </div>
+    </a>
+
+    <a class="project featured" href="https://github.com/kiarashsardari/Math-Tool" target="_blank" rel="noopener">
+      <span class="p-star" title="پروژه ویژه">★</span>
+      <div class="p-head"><div class="p-name">Math-Tool</div><span class="p-badge">کتابخانه</span></div>
+      <p>کتابخانه یکپارچه‌ای از ابزارهای ریاضی و آماری: آمار توصیفی، بازه چبیشف، Z-Score، تشخیص نوع ماتریس، MSE/RMSE، عملگر سیگما، مشتق نمادین و نمودار مقایسه‌ای. مبتنی بر NumPy، SymPy و Matplotlib.</p>
+      <div class="p-foot">
+        <span class="p-langs"><span class="p-lang">Python</span></span>
+        <span class="p-gh"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></span>
+      </div>
+    </a>
+
+    <a class="project featured" href="https://github.com/kiarashsardari/sardarleather" target="_blank" rel="noopener">
+      <span class="p-star" title="پروژه ویژه">★</span>
+      <div class="p-head"><div class="p-name">Leather Shop</div><span class="p-badge commercial">تجاری</span></div>
+      <p>وب‌سایت تک‌صفحه‌ای فروشگاه محصولات چرم دست‌دوز با قابلیت معرفی محصولات، سبد خرید و ثبت سفارش از طریق روبیکا، واتساپ و پیامک.</p>
+      <div class="p-foot">
+        <span class="p-langs"><span class="p-lang">ساخته‌شده با کمک هوش مصنوعی</span></span>
+        <span class="p-gh"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></span>
+      </div>
+    </a>
+
+    <a class="project" href="https://github.com/kiarashsardari/Sales-Data-Analyzer" target="_blank" rel="noopener">
+      <div class="p-head"><div class="p-name">Sales-Data-Analyzer</div><span class="p-badge">تحلیل فروش</span></div>
+      <p>تحلیل داده‌های فروش شامل تولید ۱۰۰ تراکنش نمونه، محاسبه درآمد ماهانه، شناسایی محصولات پرفروش و مصورسازی روند فروش با Matplotlib.</p>
+      <div class="p-foot">
+        <span class="p-langs"><span class="p-lang">Python</span></span>
+        <span class="p-gh"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></span>
+      </div>
+    </a>
+
+    <a class="project" href="https://github.com/kiarashsardari/Data-Normalization" target="_blank" rel="noopener">
+      <div class="p-head"><div class="p-name">Data-Normalization</div><span class="p-badge">پیش‌پردازش</span></div>
+      <p>پیاده‌سازی نرمال‌سازی Z-Score شامل محاسبه میانگین و انحراف معیار و تبدیل مقادیر، همراه با تست‌های خودکار در <code>Test.py</code>.</p>
+      <div class="p-foot">
+        <span class="p-langs"><span class="p-lang">Python</span></span>
+        <span class="p-gh"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></span>
+      </div>
+    </a>
+
+    <a class="project" href="https://github.com/kiarashsardari/File-converter" target="_blank" rel="noopener">
+      <div class="p-head"><div class="p-name">File-converter</div><span class="p-badge">ابزار</span></div>
+      <p>مبدل دوطرفه CSV و Excel با منوی تعاملی خط فرمان. حفظ سرستون‌ها، اعتبارسنجی وجود فایل و بازگشت به منو برای تجربه کاربری روان.</p>
+      <div class="p-foot">
+        <span class="p-langs"><span class="p-lang">Python</span></span>
+        <span class="p-gh"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></span>
+      </div>
+    </a>
+
+    <a class="project" href="https://github.com/kiarashsardari/The-Diary" target="_blank" rel="noopener">
+      <div class="p-head"><div class="p-name">The-Diary</div><span class="p-badge wip">در حال تکمیل</span></div>
+      <p>دفترچه ثبت احساسات فارسی مبتنی بر خط فرمان. ثبت فعالیت‌های روزانه با نمره احساس (‎-۱۰ تا ۱۰‎)، تاریخ شمسی با jdatetime، ذخیره‌سازی در CSV و مصورسازی با نمودارهای خطی و میله‌ای.</p>
+      <div class="p-foot">
+        <span class="p-langs"><span class="p-lang">Python</span></span>
+        <span class="p-gh"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></span>
+      </div>
+    </a>
+
+    <a class="project" href="https://github.com/kiarashsardari/Chebyshev" target="_blank" rel="noopener">
+      <div class="p-head"><div class="p-name">Chebyshev</div><span class="p-badge">آمار</span></div>
+      <p>محاسبه بازه چبیشف با فرمول mean ± k × std، پیاده‌سازی‌شده تنها با ماژول <code>math</code> پایتون و بدون هیچ وابستگی خارجی.</p>
+      <div class="p-foot">
+        <span class="p-langs"><span class="p-lang">Python</span></span>
+        <span class="p-gh"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></span>
+      </div>
+    </a>
+
+    <a class="project" href="https://github.com/kiarashsardari/MSE" target="_blank" rel="noopener">
+      <div class="p-head"><div class="p-name">MSE</div><span class="p-badge">ارزیابی</span></div>
+      <p>محاسبه Mean Squared Error و Root Mean Squared Error بین دو تابع، همراه با خروجی عددی و نمودار مقایسه‌ای برای ارزیابی دقت.</p>
+      <div class="p-foot">
+        <span class="p-langs"><span class="p-lang">Python</span></span>
+        <span class="p-gh"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></span>
+      </div>
+    </a>
+
+    <a class="project" href="https://github.com/kiarashsardari/Partial-Derivative" target="_blank" rel="noopener">
+      <div class="p-head"><div class="p-name">Partial-Derivative</div><span class="p-badge">حساب دیفرانسیل</span></div>
+      <p>محاسبه مشتقات جزئی عبارات ریاضی با SymPy. تابع <code>d(f, *symbols)</code> خروجی لیستی از مشتقات جزئی را بازمی‌گرداند.</p>
+      <div class="p-foot">
+        <span class="p-langs"><span class="p-lang">Python</span></span>
+        <span class="p-gh"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></span>
+      </div>
+    </a>
+
+    <a class="project" href="https://github.com/kiarashsardari/Matrix_Determination" target="_blank" rel="noopener">
+      <div class="p-head"><div class="p-name">Matrix_Determination</div><span class="p-badge">جبر خطی</span></div>
+      <p>تشخیص خودکار نوع ماتریس (صفر، قطری، مربعی، اسکالر، همانی، سطری، ستونی) با NumPy. تابع اصلی: <code>find_matrix_type</code>.</p>
+      <div class="p-foot">
+        <span class="p-langs"><span class="p-lang">Python</span></span>
+        <span class="p-gh"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></span>
+      </div>
+    </a>
+
+    <a class="project" href="https://github.com/kiarashsardari/Scale" target="_blank" rel="noopener">
+      <div class="p-head"><div class="p-name">Scale</div><span class="p-badge">آمار</span></div>
+      <p>محاسبه میانگین، واریانس جامعه و انحراف معیار آرایه‌ای از اعداد. توابع: <code>loc</code>، <code>variance</code>، <code>scale</code>.</p>
+      <div class="p-foot">
+        <span class="p-langs"><span class="p-lang">Python</span></span>
+        <span class="p-gh"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></span>
+      </div>
+    </a>
+
+    <a class="project" href="https://github.com/kiarashsardari/Sigma" target="_blank" rel="noopener">
+      <div class="p-head"><div class="p-name">Sigma</div><span class="p-badge">ریاضیات</span></div>
+      <p>محاسبه عملگر سیگما (جمع) یک تابع دلخواه روی بازه‌ای از اعداد صحیح، با شبیه‌سازی ساختار فرمولی <code>sigma(i, n, f)</code>.</p>
+      <div class="p-foot">
+        <span class="p-langs"><span class="p-lang">Python</span></span>
+        <span class="p-gh"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section id="path" class="container">
+  <div class="section-head">
+    <div class="kicker">مسیر حرفه‌ای</div>
+    <h2>مسیر رشد حرفه‌ای</h2>
+    <p>هر مرحله با پروژه‌های واقعی همین پروفایل قابل ارزیابی است.</p>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item done">
+      <div class="tl-num">۰۱ — انجام شد</div>
+      <div class="tl-title">بنیان‌گذاری پایه‌های آماری و ریاضی</div>
+      <div class="tl-desc">
+        آمار توصیفی و ریاضیات پایه را از صفر پیاده‌سازی کردم تا سازوکار درونی آن‌ها را بدون تکیه بر کتابخانه‌های آماده مانند SciPy درک کنم.
+        دستاورد: تسلط عمیق بر میانگین، واریانس، بازه چبیشف، Z-Score، MSE، مشتق جزئی و انواع ماتریس.
+      </div>
+      <div class="tl-projects">
+        <span class="tl-proj">Scale</span>
+        <span class="tl-proj">Sigma</span>
+        <span class="tl-proj">Chebyshev</span>
+        <span class="tl-proj">MSE</span>
+        <span class="tl-proj">Data-Normalization</span>
+        <span class="tl-proj">Partial-Derivative</span>
+        <span class="tl-proj">Matrix_Determination</span>
+      </div>
+    </div>
+
+    <div class="tl-item done">
+      <div class="tl-num">۰۲ — انجام شد</div>
+      <div class="tl-title">یکپارچه‌سازی ابزارهای تحلیلی</div>
+      <div class="tl-desc">
+        پس از چند پروژه کوچک، ضرورت یکپارچه‌سازی ابزارها آشکار شد. همه توابع را در یک ماژول با API یکدست جمع‌آوری و مستندسازی کردم.
+        دستاورد: Math-Tool — نقطه عطف بلوغ مهندسی در این پروفایل.
+      </div>
+      <div class="tl-projects">
+        <span class="tl-proj">Math-Tool</span>
+      </div>
+    </div>
+
+    <div class="tl-item done">
+      <div class="tl-num">۰۳ — انجام شد</div>
+      <div class="tl-title">ورود به داده‌های واقعی و پیچیده</div>
+      <div class="tl-desc">
+        تا این مرحله داده‌ها مصنوعی بودند. با LYM روی داده واقعی یک استراتژی معاملاتی از فایل اکسل کار کردم — با تمام پیچیدگی‌ها و استثناهای آن.
+        دستاورد: کار عملی با Pandas، پردازش Excel، محاسبات گروهی، مصورسازی و استخراج بینش از داده.
+      </div>
+      <div class="tl-projects">
+        <span class="tl-proj">LYM</span>
+        <span class="tl-proj">Sales-Data-Analyzer</span>
+      </div>
+    </div>
+
+    <div class="tl-item done">
+      <div class="tl-num">۰۴ — انجام شد</div>
+      <div class="tl-title">خلق محصولات قابل استفاده</div>
+      <div class="tl-desc">
+        از تحلیل صرف فراتر رفتم و به ساخت محصول پرداختم: یک اپلیکیشن کامل فارسی (The-Diary) و یک فروشگاه آنلاین واقعی (Leather Shop).
+        دستاورد: طراحی تجربه کاربری خط فرمان، تاریخ شمسی، ساخت وب‌سایت با هدایت هوش مصنوعی و تحویل محصول قابل استفاده.
+      </div>
+      <div class="tl-projects">
+        <span class="tl-proj">The-Diary</span>
+        <span class="tl-proj">Leather Shop</span>
+      </div>
+    </div>
+
+    <div class="tl-item current">
+      <div class="tl-num">۰۵ — در جریان</div>
+      <div class="tl-title">گام بعدی: یادگیری ماشین</div>
+      <div class="tl-desc">
+        در حال یادگیری scikit-learn با هدف مشخص: مدل‌سازی روی داده واقعی Leather Shop برای پیش‌بینی فروش و دسته‌بندی مشتریان.
+        هدف، پل زدن از تحلیل داده به یادگیری ماشین روی داده‌ای است که خودم جمع‌آوری کرده‌ام.
+      </div>
+      <div class="tl-projects">
+        <span class="tl-proj">scikit-learn</span>
+        <span class="tl-proj">پیش‌بینی فروش</span>
+        <span class="tl-proj">خوشه‌بندی مشتری</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div>© Kiarash Sardari — تحلیلگر داده</div>
+</footer>
+
+</body>
+</html>
