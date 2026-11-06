@@ -7,7 +7,7 @@ I analyze data with Python (Pandas, NumPy, Matplotlib) and I'm on my way to Mach
 ## Skills
 - Python
 - Pandas, NumPy, Matplotlib
-- Data Analysis
+- Data Analysis (beginner)
 - Currently learning: Machine Learning, Deep Learning
 
 ## Projects
