@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kiarashsardari.github.io/sitemap.xml
