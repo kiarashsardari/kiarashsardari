@@ -195,6 +195,80 @@
 
   footer{border-top:1px solid var(--line);padding:24px 0;margin-top:40px;color:var(--muted);font-size:.85rem;text-align:center;}
   footer a{color:var(--accent)}
+
+  /* ===== Contact Modal ===== */
+  .contact-modal{
+    position:fixed;inset:0;
+    background:rgba(11,16,32,.85);
+    backdrop-filter:blur(8px);
+    display:none;align-items:center;justify-content:center;
+    padding:20px;z-index:999;
+  }
+  .contact-modal.open{display:flex}
+  .contact-modal-box{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px 24px 22px;
+    max-width:420px;width:100%;
+    text-align:center;position:relative;
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+  }
+  .contact-modal-close{
+    position:absolute;top:12px;left:12px;
+    width:32px;height:32px;border-radius:8px;
+    background:rgba(108,139,255,.1);
+    border:1px solid var(--line);
+    color:var(--muted);cursor:pointer;
+    font-size:18px;line-height:1;
+    display:flex;align-items:center;justify-content:center;
+    transition:.2s;font-family:inherit;
+  }
+  .contact-modal-close:hover{background:rgba(108,139,255,.2);color:var(--text)}
+  .contact-modal-icon{
+    width:56px;height:56px;margin:0 auto 16px;
+    border-radius:14px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:flex;align-items:center;justify-content:center;color:#fff;
+  }
+  .contact-modal-icon svg{width:26px;height:26px}
+  .contact-modal-box h3{font-size:1.1rem;margin-bottom:14px;color:var(--text)}
+  .contact-modal-value{
+    font-family:ui-monospace,Menlo,Consolas,monospace;
+    font-size:1rem;
+    padding:12px 16px;border-radius:10px;
+    background:rgba(108,139,255,.08);
+    border:1px dashed rgba(108,139,255,.3);
+    color:#c9d4ff;margin-bottom:20px;
+    word-break:break-all;user-select:all;
+  }
+  .contact-modal-actions{display:flex;gap:10px}
+  .contact-modal-actions button,
+  .contact-modal-actions a{
+    flex:1;padding:12px 16px;border-radius:10px;
+    font-family:inherit;font-weight:700;font-size:.92rem;
+    cursor:pointer;border:none;
+    display:inline-flex;align-items:center;justify-content:center;gap:7px;
+    transition:.2s;text-decoration:none;
+  }
+  .contact-modal-actions .btn-copy{
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:#fff;
+  }
+  .contact-modal-actions .btn-copy:hover{
+    box-shadow:0 8px 24px -8px rgba(108,139,255,.6);
+    transform:translateY(-1px);
+  }
+  .contact-modal-actions .btn-copy.copied{background:var(--good)}
+  .contact-modal-actions .btn-action{
+    background:rgba(108,139,255,.1);
+    border:1px solid var(--line);
+    color:var(--text);
+  }
+  .contact-modal-actions .btn-action:hover{
+    background:rgba(108,139,255,.2);
+    border-color:var(--accent);
+  }
 </style>
 </head>
 <body>
@@ -481,12 +555,12 @@
     <button type="button" class="contact-btn primary" onclick="goContact('email')" aria-label="ارسال ایمیل به Kiarash Sardari">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
       <span class="lbl">ایمیل</span>
-      <span class="val">برای ایمیل دادن کلیک کنید</span>
+      <span class="val">ارسال ایمیل</span>
     </button>
     <button type="button" class="contact-btn" onclick="goContact('phone')" aria-label="تماس تلفنی با Kiarash Sardari">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       <span class="lbl">تلفن</span>
-      <span class="val">برای دریافت شماره تماس کلیک کنید</span>
+      <span class="val">تماس تلفنی</span>
     </button>
     <a class="contact-btn" href="https://github.com/kiarashsardari" target="_blank" rel="noopener" aria-label="مشاهده پروفایل گیت‌هاب Kiarash Sardari">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.77-.01 3.15 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
@@ -793,7 +867,21 @@
   <div>© Kiarash Sardari — توسعه‌دهنده خودآموز</div>
 </footer>
 
-<!-- ===== Contact Obfuscation Script ===== -->
+<!-- ===== Contact Modal ===== -->
+<div class="contact-modal" id="contactModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle">
+  <div class="contact-modal-box">
+    <button type="button" class="contact-modal-close" onclick="closeContactModal()" aria-label="بستن">×</button>
+    <div class="contact-modal-icon" id="contactModalIcon"></div>
+    <h3 id="contactModalTitle"></h3>
+    <div class="contact-modal-value" id="contactModalValue" dir="ltr"></div>
+    <div class="contact-modal-actions">
+      <button type="button" class="btn-copy" id="contactCopyBtn" onclick="copyContactValue()">کپی</button>
+      <a class="btn-action" id="contactActionBtn" href="#">باز کردن</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Contact Obfuscation + Modal Script ===== -->
 <script>
 (function(){
   "use strict";
@@ -801,24 +889,117 @@
   var EMAIL_CODES = [107,105,97,114,97,115,104,49,50,51,115,97,114,100,97,114,105,64,103,109,97,105,108,46,99,111,109];
   var PHONE_CODES = [43,57,56,57,49,54,53,49,57,55,54,51,48];
 
+  var EMAIL_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>';
+  var PHONE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>';
+
+  var currentType = null;
+  var currentValue = '';
+
   function decode(codes){
     var out = '';
     for (var i = 0; i < codes.length; i++) out += String.fromCharCode(codes[i]);
     return out;
   }
 
+  function isMobile(){
+    return /Android|iPhone|iPad|iPod|Mobile|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+      || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  }
+
+  function showModal(type, value){
+    var modal = document.getElementById('contactModal');
+    var title = document.getElementById('contactModalTitle');
+    var valEl = document.getElementById('contactModalValue');
+    var iconEl = document.getElementById('contactModalIcon');
+    var actionBtn = document.getElementById('contactActionBtn');
+    var copyBtn = document.getElementById('contactCopyBtn');
+
+    currentType = type;
+    currentValue = value;
+
+    if (type === 'email') {
+      title.textContent = 'ایمیل';
+      iconEl.innerHTML = EMAIL_ICON;
+      actionBtn.href = 'mailto:' + value;
+      actionBtn.textContent = 'ارسال ایمیل';
+    } else {
+      title.textContent = 'شماره تماس';
+      iconEl.innerHTML = PHONE_ICON;
+      actionBtn.href = 'tel:' + value;
+      actionBtn.textContent = 'تماس';
+    }
+
+    valEl.textContent = value;
+    copyBtn.textContent = 'کپی';
+    copyBtn.classList.remove('copied');
+
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+  }
+
+  window.closeContactModal = function(){
+    var modal = document.getElementById('contactModal');
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+  };
+
   window.goContact = function(kind){
-    try {
-      if (kind === 'email') {
-        window.location.href = 'mailto:' + decode(EMAIL_CODES);
-      } else if (kind === 'phone') {
-        window.location.href = 'tel:' + decode(PHONE_CODES);
-      }
-    } catch (e) {
-      // در صورت پشتیبانی نشدن، پیامی نمایش می‌دهیم
-      if (window.console && console.warn) console.warn('Contact handler unavailable.');
+    var value = decode(kind === 'email' ? EMAIL_CODES : PHONE_CODES);
+    if (isMobile()) {
+      // روی موبایل: مستقیم شماره‌گیری یا ایمیل
+      window.location.href = (kind === 'email' ? 'mailto:' : 'tel:') + value;
+    } else {
+      // روی دسکتاپ: نمایش مودال با دکمهٔ کپی
+      showModal(kind, value);
     }
   };
+
+  window.copyContactValue = function(){
+    var btn = document.getElementById('contactCopyBtn');
+    if (!btn) return;
+
+    function done(){
+      btn.textContent = 'کپی شد ✓';
+      btn.classList.add('copied');
+      setTimeout(function(){
+        btn.textContent = 'کپی';
+        btn.classList.remove('copied');
+      }, 2000);
+    }
+
+    function fallbackCopy(){
+      var ta = document.createElement('textarea');
+      ta.value = currentValue;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch(e){}
+      document.body.removeChild(ta);
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(currentValue).then(done).catch(function(){
+        fallbackCopy();
+        done();
+      });
+    } else {
+      fallbackCopy();
+      done();
+    }
+  };
+
+  // بستن مودال با کلیک روی پس‌زمینه
+  document.addEventListener('click', function(e){
+    var modal = document.getElementById('contactModal');
+    if (modal && e.target === modal) window.closeContactModal();
+  });
+
+  // بستن مودال با کلید Escape
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') window.closeContactModal();
+  });
 })();
 </script>
 
